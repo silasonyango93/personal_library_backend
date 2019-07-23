@@ -1,19 +1,29 @@
 package com.silasonyango.personallibrary.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Transient;
 
-@Entity
+@javax.persistence.Entity
 @Table(name = "users")
-public class UserModel {
+@javax.persistence.SqlResultSetMapping(
+        name = "users", entities =
+@javax.persistence.EntityResult(entityClass = UserModel.class)
+)
+
+@NamedNativeQueries({
+        @NamedNativeQuery(name="UserModel.getUsers",
+                query="SELECT * FROM users",
+        resultSetMapping = "users" )
+})
+
+public class UserModel  implements java.io.Serializable{
+
+    @Id
+    @Column(name = "UserId")
+    private int UserId;
 
     @Column(name = "FirstName")
     private String firstName;
@@ -30,6 +40,14 @@ public class UserModel {
     @Column(name = "EncryptedPassword")
     @Transient
     private String password;
+
+    public int getUser() {
+        return UserId;
+    }
+
+    public void setUser(int UserId) {
+        this.UserId = UserId;
+    }
 
     public String getFirstName() {
         return firstName;
