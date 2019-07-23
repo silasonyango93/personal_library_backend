@@ -1,5 +1,6 @@
-package com.silasonyango.personallibrary.models.repository;
+package com.silasonyango.personallibrary.repository;
 
+import com.silasonyango.personallibrary.models.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,7 @@ import java.util.List;
  */
 
 @Repository
-public interface NoteRepository extends JpaRepository<Note, Long> {
-    @Query("select n from notes n")
-    public List<Note> getNotes();
+public interface UserRepository extends JpaRepository<UserModel, Long> {
+    @Query(nativeQuery = true)
+    public List<UserModel> getUsers();
 }
