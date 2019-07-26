@@ -21,7 +21,7 @@ public class PersonalLibraryApplication {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/create_user").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/*").allowedOrigins("*");
 			}
 		};
 	}
