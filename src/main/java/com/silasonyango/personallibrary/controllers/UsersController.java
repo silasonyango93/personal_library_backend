@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UsersController {
 
     @Autowired
@@ -34,9 +34,31 @@ public class UsersController {
         return userRepository.save(user);
     }
 
-    @PostMapping("/signin")
+    @PostMapping("/get_by_email")
     public List<UserModel> findByEmail(@Valid @RequestBody JSONObject emailOject) {
         return userRepository.findByEmail(emailOject.getAsString("attemptedEmail"));
+    }
+
+    @PostMapping("/authenticate")
+    public JSONObject authenticate(@Valid @RequestBody JSONObject credentialsObject) {
+        UserModel myUser = new UserModel();
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        JSONObject myresponseObject = new JSONObject();
+        List<UserModel> myUserList = userRepository.findByEmail(credentialsObject.getAsString("attemptedEmail"));
+        myUser = myUserList.get(0);
+
+        String hashedAttemptedPassword = passwordEncoder.encode(credentialsObject.getAsString("attemptedPassword"));
+
+        if(passwordEncoder.matches(myUser.getPassword(), hashedAttemptedPassword)){
+            myresponseObject.put("success", true);
+            myresponseObject.put("userDetails", myUser);
+        }else {
+
+            myresponseObject.put("success", false);
+            myresponseObject.put("successMessage", "Login was not succesful. Incorrect user or password");
+        }
+
+        return myresponseObject;
     }
 
 }
