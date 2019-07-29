@@ -47,9 +47,7 @@ public class UsersController {
         List<UserModel> myUserList = userRepository.findByEmail(credentialsObject.getAsString("attemptedEmail"));
         myUser = myUserList.get(0);
 
-        //String hashedAttemptedPassword = passwordEncoder.encode(credentialsObject.getAsString("attemptedPassword"));
-
-        if(passwordEncoder.matches(myUser.getPassword(), credentialsObject.getAsString("attemptedPassword"))){
+        if(passwordEncoder.matches(credentialsObject.getAsString("attemptedPassword"),myUser.getPassword())){
             myresponseObject.put("success", true);
             myresponseObject.put("userDetails", myUser);
         }else {
