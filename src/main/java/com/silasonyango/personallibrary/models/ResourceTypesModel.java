@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 public class ResourceTypesModel   implements java.io.Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ResourceTypeId")
     private int resourceTypeId;
 

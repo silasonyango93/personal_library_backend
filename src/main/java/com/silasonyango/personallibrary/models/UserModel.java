@@ -22,6 +22,7 @@ import org.springframework.data.annotation.Transient;
 public class UserModel  implements java.io.Serializable{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "UserId")
     private int UserId;
 
