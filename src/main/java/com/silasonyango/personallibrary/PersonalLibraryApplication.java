@@ -22,6 +22,7 @@ public class PersonalLibraryApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/user/*").allowedOrigins("*");
+				registry.addMapping("/resource_types/*").allowedOrigins("*");
 			}
 		};
 	}
