@@ -47,15 +47,15 @@ public class UsersController {
         List<UserModel> myUserList = userRepository.findByEmail(credentialsObject.getAsString("attemptedEmail"));
         myUser = myUserList.get(0);
 
-        String hashedAttemptedPassword = passwordEncoder.encode(credentialsObject.getAsString("attemptedPassword"));
+        //String hashedAttemptedPassword = passwordEncoder.encode(credentialsObject.getAsString("attemptedPassword"));
 
-        if(passwordEncoder.matches(myUser.getPassword(), hashedAttemptedPassword)){
+        if(passwordEncoder.matches(myUser.getPassword(), credentialsObject.getAsString("attemptedPassword"))){
             myresponseObject.put("success", true);
             myresponseObject.put("userDetails", myUser);
         }else {
 
             myresponseObject.put("success", false);
-            myresponseObject.put("successMessage", "Login was not succesful. Incorrect user or password");
+            myresponseObject.put("successMessage", "Login was not successful. Incorrect user or password");
         }
 
         return myresponseObject;
