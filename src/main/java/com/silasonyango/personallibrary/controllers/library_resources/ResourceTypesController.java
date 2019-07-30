@@ -1,10 +1,8 @@
 package com.silasonyango.personallibrary.controllers;
 
 import com.silasonyango.personallibrary.models.ResourceTypesModel;
-import com.silasonyango.personallibrary.models.UserModel;
 import com.silasonyango.personallibrary.repository.ResourceTypesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

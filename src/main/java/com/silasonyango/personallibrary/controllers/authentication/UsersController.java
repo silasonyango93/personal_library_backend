@@ -1,11 +1,9 @@
 package com.silasonyango.personallibrary.controllers;
 
-import com.silasonyango.personallibrary.exception.ResourceNotFoundException;
-import com.silasonyango.personallibrary.models.UserModel;
+import com.silasonyango.personallibrary.models.authentication.UserModel;
 import com.silasonyango.personallibrary.repository.UserRepository;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
