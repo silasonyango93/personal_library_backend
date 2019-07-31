@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
+
 @RestController
 @RequestMapping("/library_partitions")
 
@@ -19,5 +21,10 @@ public class LibraryPartionsController {
     public LibraryPartionsModel createLibraryPartition(@Valid LibraryPartionsModel myLibraryPartitionObject) {
 
         return myLibraryPartionRepository.save(myLibraryPartitionObject);
+    }
+
+    @PostMapping("/get_all_partitions")
+    public List<LibraryPartionsModel> getAllLibraryPartitions() {
+        return myLibraryPartionRepository.findAll();
     }
 }

@@ -19,10 +19,13 @@ public class PersonalLibraryApplication {
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurerAdapter() {
+
+			final String clientUrl = "*";
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/user/*").allowedOrigins("*");
-				registry.addMapping("/resource_types/*").allowedOrigins("*");
+				registry.addMapping("/user/*").allowedOrigins(clientUrl);
+				registry.addMapping("/resource_types/*").allowedOrigins(clientUrl);
+				registry.addMapping("/library_partitions/*").allowedOrigins(clientUrl);
 			}
 		};
 	}
