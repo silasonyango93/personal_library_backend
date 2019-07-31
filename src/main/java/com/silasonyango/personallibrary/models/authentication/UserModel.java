@@ -1,4 +1,4 @@
-package com.silasonyango.personallibrary.models;
+package com.silasonyango.personallibrary.models.authentication;
 
 import javax.persistence.*;
 

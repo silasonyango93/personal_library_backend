@@ -1,7 +1,8 @@
-package com.silasonyango.personallibrary.controllers;
+package com.silasonyango.personallibrary.controllers.library_resources;
 
-import com.silasonyango.personallibrary.models.ResourceTypesModel;
-import com.silasonyango.personallibrary.repository.ResourceTypesRepository;
+
+import com.silasonyango.personallibrary.models.library_resource.ResourceTypesModel;
+import com.silasonyango.personallibrary.repository.library_resource.ResourceTypesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

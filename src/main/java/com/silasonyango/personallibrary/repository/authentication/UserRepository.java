@@ -1,4 +1,4 @@
-package com.silasonyango.personallibrary.repository;
+package com.silasonyango.personallibrary.repository.authentication;
 
 import com.silasonyango.personallibrary.models.authentication.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;

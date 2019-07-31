@@ -1,4 +1,4 @@
-package com.silasonyango.personallibrary.models;
+package com.silasonyango.personallibrary.models.library_resource;
 
 import javax.persistence.*;
 @javax.persistence.Entity

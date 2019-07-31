@@ -1,7 +1,7 @@
-package com.silasonyango.personallibrary.controllers;
+package com.silasonyango.personallibrary.controllers.authentication;
 
 import com.silasonyango.personallibrary.models.authentication.UserModel;
-import com.silasonyango.personallibrary.repository.UserRepository;
+import com.silasonyango.personallibrary.repository.authentication.UserRepository;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
