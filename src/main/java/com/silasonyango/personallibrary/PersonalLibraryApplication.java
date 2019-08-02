@@ -26,6 +26,8 @@ public class PersonalLibraryApplication {
 				registry.addMapping("/user/*").allowedOrigins(clientUrl);
 				registry.addMapping("/resource_types/*").allowedOrigins(clientUrl);
 				registry.addMapping("/library_partitions/*").allowedOrigins(clientUrl);
+				registry.addMapping("/subpartitions/*").allowedOrigins(clientUrl);
+				registry.addMapping("/library_fields/*").allowedOrigins(clientUrl);
 			}
 		};
 	}
